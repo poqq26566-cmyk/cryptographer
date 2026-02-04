@@ -1,14 +1,13 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
   <diagram name="TripleDES Decrypt Flow" id="tdes-decrypt-flow">
-    <mxGraphModel dx="403633" dy="289103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="37775" dy="48827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="XoX9k9M5C5b7xb_f7b9T-1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="check-algo">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="начало" vertex="1">
-          <mxGeometry height="50" width="120" x="630" y="20" as="geometry" />
+        <mxCell id="XoX9k9M5C5b7xb_f7b9T-1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="check-algo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="70" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="XoX9k9M5C5b7xb_f7b9T-2" edge="1" parent="1" source="check-algo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="check-iv">
           <mxGeometry relative="1" as="geometry" />
@@ -194,23 +193,21 @@
         <mxCell id="pkcs5-check" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="1 ≤ padLength ≤ 8 и&#xa;все байты padding равны?" vertex="1">
           <mxGeometry height="80" width="200" x="430" y="980" as="geometry" />
         </mxCell>
-        <mxCell id="XoX9k9M5C5b7xb_f7b9T-32" edge="1" parent="1" source="pkcs5-remove" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="return-success">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="XoX9k9M5C5b7xb_f7b9T-32" edge="1" parent="1" source="pkcs5-remove" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="1180" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="pkcs5-remove" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="plaintext = result[0..result.size - padLength]" vertex="1">
           <mxGeometry height="50" width="240" x="590" y="1075" as="geometry" />
         </mxCell>
-        <mxCell id="XoX9k9M5C5b7xb_f7b9T-39" edge="1" parent="1" source="pkcs5-keep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="return-success">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="XoX9k9M5C5b7xb_f7b9T-39" edge="1" parent="1" source="pkcs5-keep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="1180" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="pkcs5-keep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="plaintext = result&#xa;(некорректный padding)" vertex="1">
           <mxGeometry height="60" width="200" x="260" y="1070" as="geometry" />
-        </mxCell>
-        <mxCell id="return-success" parent="1" style="parallelogram;whiteSpace=wrap;html=1;fontStyle=1;align=center;" value="Result.success(plaintext)" vertex="1">
-          <mxGeometry height="60" width="220" x="420" y="1180" as="geometry" />
-        </mxCell>
-        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="конец" vertex="1">
-          <mxGeometry height="60" width="160" x="440" y="1270" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;" target="check-algo" />
         <mxCell id="e2" edge="1" parent="1" source="check-algo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="error-unsupported" />
@@ -237,11 +234,11 @@
         <mxCell id="e14" edge="1" parent="1" source="ede-step1-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" target="ede-step1-168" value="Нет" />
         <mxCell id="e15" edge="1" parent="1" source="ede-step1-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ede-step2" />
         <mxCell id="e16" edge="1" parent="1" source="ede-step1-168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ede-step2" />
-        <mxCell id="e17" edge="1" parent="1" source="ede-step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="ede-step3-check" />
-        <mxCell id="e18" edge="1" parent="1" source="ede-step3-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="ede-step3-112" value="Да" />
-        <mxCell id="e19" edge="1" parent="1" source="ede-step3-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" target="ede-step3-168" value="Нет" />
+        <mxCell id="e17" edge="1" parent="1" source="ede-step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" />
+        <mxCell id="e18" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="ede-step3-112" value="Да" />
+        <mxCell id="e19" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" value="Нет" />
         <mxCell id="e20" edge="1" parent="1" source="ede-step3-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="cbc-xor" />
-        <mxCell id="e21" edge="1" parent="1" source="ede-step3-168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="cbc-xor" />
+        <mxCell id="e21" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="cbc-xor" />
         <mxCell id="e22" edge="1" parent="1" source="cbc-xor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="cbc-store" />
         <mxCell id="e23" edge="1" parent="1" source="cbc-store" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="cbc-inc" />
         <mxCell id="e24" edge="1" parent="1" source="cbc-inc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="cbc-loop-start" />
@@ -252,12 +249,13 @@
         <mxCell id="e29" edge="1" parent="1" source="pkcs5-remove" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="return-success" />
         <mxCell id="e30" edge="1" parent="1" source="pkcs5-keep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="return-success" />
         <mxCell id="e31" edge="1" parent="1" source="return-success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end" />
-        <mxCell id="e32" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end">
+        <mxCell id="e32" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1390" y="185" />
-              <mxPoint x="1390" y="1310" />
+              <mxPoint x="1390" y="1270" />
             </Array>
+            <mxPoint x="525" y="1290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XoX9k9M5C5b7xb_f7b9T-21" edge="1" parent="1" source="ede-step1-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.568;entryY=-0.009;entryDx=0;entryDy=0;entryPerimeter=0;" target="ede-step1-168">
@@ -271,8 +269,23 @@
         <mxCell id="XoX9k9M5C5b7xb_f7b9T-31" edge="1" parent="1" source="pkcs5-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.543;entryY=0.046;entryDx=0;entryDy=0;entryPerimeter=0;" target="pkcs5-remove">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="XoX9k9M5C5b7xb_f7b9T-33" edge="1" parent="1" source="return-success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.568;entryY=-0.04;entryDx=0;entryDy=0;entryPerimeter=0;" target="end">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="XoX9k9M5C5b7xb_f7b9T-33" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="1240" />
+            </Array>
+            <mxPoint x="530" y="1240" as="sourcePoint" />
+            <mxPoint x="525" y="1288" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xk7t1JazjbK8Z0VP91nl-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="Result.success(plaintext)" vertex="1">
+          <mxGeometry height="60" width="200" x="430" y="1180" as="geometry" />
+        </mxCell>
+        <mxCell id="xk7t1JazjbK8Z0VP91nl-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Конец" vertex="1">
+          <mxGeometry height="80" width="130" x="460" y="1290" as="geometry" />
+        </mxCell>
+        <mxCell id="xk7t1JazjbK8Z0VP91nl-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Начало" vertex="1">
+          <mxGeometry height="70" width="120" x="630" y="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

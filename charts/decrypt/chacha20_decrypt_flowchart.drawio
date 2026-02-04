@@ -1,14 +1,13 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
   <diagram name="ChaCha20 Decrypt Flow" id="chacha20-decrypt-flow">
-    <mxGraphModel dx="202700" dy="143504" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="58928" dy="54919" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="kEUfvL7Wv9e8HPhVfpTe-1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="check-algo">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="начало" vertex="1">
-          <mxGeometry height="50" width="120" x="640" y="40" as="geometry" />
+        <mxCell id="kEUfvL7Wv9e8HPhVfpTe-1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="check-algo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700.0000000000073" y="90" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="kEUfvL7Wv9e8HPhVfpTe-2" edge="1" parent="1" source="check-algo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="error-unsupported">
           <mxGeometry relative="1" as="geometry" />
@@ -118,7 +117,7 @@
         <mxCell id="check-tag" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="result == 0?&#xa;(Тег валиден?)" vertex="1">
           <mxGeometry height="70" width="200" x="490" y="1020" as="geometry" />
         </mxCell>
-        <mxCell id="error-auth" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="return null&#xa;DomainError(&quot;Authentication failed:&#xa;invalid tag. Data may be tampered.&quot;)" vertex="1">
+        <mxCell id="error-auth" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;br&gt;DomainError(&quot;Authentication failed:&lt;br&gt;invalid tag. Data may be tampered.&quot;)" vertex="1">
           <mxGeometry height="80" width="280" x="960" y="940" as="geometry" />
         </mxCell>
         <mxCell id="chacha20-decrypt-init" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="ChaCha20 Stream Cipher Decrypt:&#xa;counter = 1, offset = 0" vertex="1">
@@ -136,14 +135,8 @@
         <mxCell id="chacha20-decrypt-inc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="counter++&#xa;offset += blockLen" vertex="1">
           <mxGeometry height="50" width="140" x="520" y="1530" as="geometry" />
         </mxCell>
-        <mxCell id="return-plaintext" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="plaintext готов" vertex="1">
+        <mxCell id="return-plaintext" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="Result.success(plaintext)" vertex="1">
           <mxGeometry height="50" width="180" x="790" y="1260" as="geometry" />
-        </mxCell>
-        <mxCell id="return-success" parent="1" style="parallelogram;whiteSpace=wrap;html=1;fontStyle=1;align=center;" value="Result.success(plaintext)" vertex="1">
-          <mxGeometry height="70" width="240" x="760" y="1370" as="geometry" />
-        </mxCell>
-        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="конец" vertex="1">
-          <mxGeometry height="80" width="200" x="780" y="1480" as="geometry" />
         </mxCell>
         <mxCell id="split-to-calc" edge="1" parent="1" source="split" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;" target="split-calc-size">
           <mxGeometry relative="1" as="geometry" />
@@ -198,41 +191,54 @@
         <mxCell id="loop-no" edge="1" parent="1" source="chacha20-decrypt-loop-start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;" target="return-plaintext" value="Нет">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="plaintext-to-success" edge="1" parent="1" source="return-plaintext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="return-success">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="plaintext-to-success" edge="1" parent="1" source="return-plaintext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="success-to-end" edge="1" parent="1" source="return-success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="success-to-end" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="1440" as="sourcePoint" />
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="error-unsupported-to-end" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;" target="end">
+        <mxCell id="error-unsupported-to-end" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1350" y="195" />
-              <mxPoint x="1350" y="1520" />
+              <mxPoint x="1350" y="1460" />
+              <mxPoint x="880" y="1460" />
             </Array>
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="error-nonce-to-end" edge="1" parent="1" source="error-nonce" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;" target="end">
+        <mxCell id="error-nonce-to-end" edge="1" parent="1" source="error-nonce" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1350" y="305" />
-              <mxPoint x="1350" y="1520" />
+              <mxPoint x="1350" y="1460" />
+              <mxPoint x="880" y="1460" />
             </Array>
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="error-length-to-end" edge="1" parent="1" source="error-length" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;" target="end">
+        <mxCell id="error-length-to-end" edge="1" parent="1" source="error-length" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1350" y="405" />
-              <mxPoint x="1350" y="1520" />
+              <mxPoint x="1350" y="1460" />
+              <mxPoint x="880" y="1460" />
             </Array>
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="error-auth-to-end" edge="1" parent="1" source="error-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;" target="end">
+        <mxCell id="error-auth-to-end" edge="1" parent="1" source="error-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1100" y="1520" />
+              <mxPoint x="1100" y="1460" />
+              <mxPoint x="880" y="1460" />
             </Array>
+            <mxPoint x="880.0000000000073" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;" target="check-algo" />
@@ -282,6 +288,12 @@
         </mxCell>
         <mxCell id="4PjP7yFBaWUzNE9GICMY-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="i &amp;lt; tag.size" vertex="1">
           <mxGeometry height="70" width="200" x="490" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="UpQDTOMwHONSUQrV6iSc-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Конец" vertex="1">
+          <mxGeometry height="80" width="120" x="820" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="UpQDTOMwHONSUQrV6iSc-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Начало" vertex="1">
+          <mxGeometry height="80" width="120" x="640" y="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
