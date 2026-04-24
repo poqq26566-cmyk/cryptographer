@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15" version="29.6.1">
   <diagram name="TripleDES Key Generation Detailed" id="tdes-key-gen-flow-detailed">
-    <mxGraphModel dx="1375" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="1270" dy="1152" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -64,19 +64,19 @@
         <mxCell id="e8" edge="1" parent="1" source="check-algo-type" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=light-dark(#000000, #5c79a3);" target="tdes-168-case" value="Да">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e9" edge="1" parent="1" source="tdes-112-case" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=light-dark(#000000, #5c79a3);" target="return-key-size" value="">
+        <mxCell id="e9" edge="1" parent="1" source="tdes-112-case" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=light-dark(#000000, #5c79a3);entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="return-key-size" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="220" y="670" />
-              <mxPoint x="220" y="850" />
+              <mxPoint x="220" y="600" />
+              <mxPoint x="720" y="600" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e10" edge="1" parent="1" source="tdes-168-case" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=light-dark(#000000, #5c79a3);" target="return-key-size" value="">
+        <mxCell id="e10" edge="1" parent="1" source="tdes-168-case" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=light-dark(#000000, #5c79a3);entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="return-key-size" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1180" y="670" />
-              <mxPoint x="1180" y="850" />
+              <mxPoint x="1180" y="600" />
+              <mxPoint x="720" y="600" />
             </Array>
           </mxGeometry>
         </mxCell>
