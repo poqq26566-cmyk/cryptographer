@@ -1,37 +1,17 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0">
   <diagram name="AES Encrypt Flow" id="aes-encrypt-flow">
-    <mxGraphModel dx="54575" dy="72827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="66891" dy="78921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="check-algo" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="Проверка поддерживаемого алгоритма (AES_128/192/256)" vertex="1">
           <mxGeometry height="90" width="320" x="540" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="qwzlbAZyP8GKE74RNqJy-5" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1640" y="195" />
-              <mxPoint x="1640" y="1000" />
-              <mxPoint x="1470" y="1000" />
-            </Array>
-            <mxPoint x="1470" y="1025" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="error-unsupported" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;div&gt;UnsupportedAlgorithmError(&lt;/div&gt;&lt;div&gt;&quot;AesEncryptionService&quot;&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;" vertex="1">
           <mxGeometry height="70" width="230" x="900" y="160" as="geometry" />
         </mxCell>
         <mxCell id="check-key-length" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="Проверка длины ключа" vertex="1">
           <mxGeometry height="70" width="230" x="600" y="270" as="geometry" />
-        </mxCell>
-        <mxCell id="QkmjrnV8KY1X7IcKG_3i-4" edge="1" parent="1" source="error-domain" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1640" y="305" />
-              <mxPoint x="1640" y="1000" />
-              <mxPoint x="1470" y="1000" />
-            </Array>
-            <mxPoint x="1470" y="1025" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="error-domain" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="DomainError (неверная длина ключа)" vertex="1">
           <mxGeometry height="70" width="250" x="900" y="270" as="geometry" />
@@ -295,6 +275,27 @@
         </mxCell>
         <mxCell id="i-KYu7T81O404lUvau4q-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Начало" vertex="1">
           <mxGeometry height="80" width="150" x="625" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bsk3tGYT9H5vjltQ22Pw-1" edge="1" parent="1" source="error-domain" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1200" y="550" as="sourcePoint" />
+            <mxPoint x="1660" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bsk3tGYT9H5vjltQ22Pw-2" edge="1" parent="1" source="error-unsupported" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1200" y="550" as="sourcePoint" />
+            <mxPoint x="1660" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bsk3tGYT9H5vjltQ22Pw-3" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1660" y="1000" />
+            </Array>
+            <mxPoint x="1660" y="190" as="sourcePoint" />
+            <mxPoint x="1470" y="1000" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,28 +1,28 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0">
   <diagram name="ChaCha20-Poly1305 Key Generation Detailed" id="chacha20-key-gen-flow-detailed">
-    <mxGraphModel dx="1375" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="1023" dy="864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="check-support" parent="1" style="rhombus;whiteSpace=wrap;html=1;align=center;" value="Проверка того, что алгоритм поддерживается&amp;nbsp;" vertex="1">
-          <mxGeometry height="75" width="260" x="570" y="165" as="geometry" />
+          <mxGeometry height="75" width="260" x="590" y="165" as="geometry" />
         </mxCell>
         <mxCell id="error-unsupported" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;Бросок исключения:&lt;br&gt;UnsupportedAlgorithmError(algorithm,&lt;br&gt;&quot;ChaCha20EncryptionService&quot;)&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="230" x="870" y="165" as="geometry" />
+          <mxGeometry height="80" width="230" x="880" y="162.5" as="geometry" />
         </mxCell>
         <mxCell id="key-size" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;keySize = ChaCha20Key.SIZE_BYTES&lt;br&gt;keySize = 32 байта (256 бит)&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="320" x="550" y="320" as="geometry" />
+          <mxGeometry height="80" width="320" x="560" y="270" as="geometry" />
         </mxCell>
         <mxCell id="create-array" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;keyBytes = ByteArray(keySize)&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;SecureRandom().nextBytes(keyBytes)&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="260" x="590" y="430" as="geometry" />
+          <mxGeometry height="80" width="260" x="590" y="370" as="geometry" />
         </mxCell>
         <mxCell id="create-entity" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;EncryptionKey(&lt;br&gt;  value = keyBytes,&lt;br&gt;  algorithm = algorithm&lt;br&gt;)&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="220" x="610" y="540" as="geometry" />
+          <mxGeometry height="80" width="220" x="610" y="470" as="geometry" />
         </mxCell>
-        <mxCell id="return-success" parent="1" style="parallelogram;whiteSpace=wrap;html=1;fontStyle=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;Возврат результата -&amp;nbsp;&lt;br&gt;Result.success(EncryptionKey)&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="240" x="600" y="660" as="geometry" />
+        <mxCell id="return-success" parent="1" style="parallelogram;whiteSpace=wrap;html=1;fontStyle=1;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Возврат результата -&amp;nbsp;&lt;br&gt;Result.success(EncryptionKey)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="240" x="600" y="580" as="geometry" />
         </mxCell>
-        <mxCell id="e1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;" target="check-support">
+        <mxCell id="e1" edge="1" parent="1" source="Uu9v4L_LxRj6blfCmE8G-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="check-support">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="700" y="120" as="sourcePoint" />
           </mxGeometry>
@@ -38,11 +38,9 @@
         <mxCell id="e3" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="980" y="245" />
-              <mxPoint x="980" y="750" />
-              <mxPoint x="720" y="750" />
+              <mxPoint x="995" y="690" />
             </Array>
-            <mxPoint x="720" y="770" as="targetPoint" />
+            <mxPoint x="720" y="690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e4" edge="1" parent="1" source="check-support" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="key-size" value="Да">
@@ -59,17 +57,16 @@
         </mxCell>
         <mxCell id="e8" edge="1" parent="1" source="return-success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="720" y="770" as="targetPoint" />
+            <mxPoint x="720" y="710" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Uu9v4L_LxRj6blfCmE8G-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Начало" vertex="1">
-          <mxGeometry height="80" width="130" x="635" y="40" as="geometry" />
+          <mxGeometry height="80" width="130" x="655" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Uu9v4L_LxRj6blfCmE8G-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Конец" vertex="1">
-          <mxGeometry height="80" width="120" x="660" y="770" as="geometry" />
+          <mxGeometry height="80" width="120" x="660" y="710" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
-

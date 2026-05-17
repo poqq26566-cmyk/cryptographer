@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0">
   <diagram name="AES Decrypt Flow" id="aes-decrypt-flow">
-    <mxGraphModel dx="34975" dy="44827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+    <mxGraphModel dx="150077" dy="107152" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -193,7 +193,7 @@
         <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="конец" vertex="1">
           <mxGeometry height="80" width="200" x="1120" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;" target="check-algo" />
+        <mxCell id="e1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;" target="check-algo" />
         <mxCell id="e2" edge="1" parent="1" source="check-algo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="error-unsupported" />
         <mxCell id="e2-label" parent="e2" style="edgeLabel;html=1;align=center;verticalAlign=middle;" value="Нет" vertex="1">
           <mxGeometry relative="1" x="-0.2" y="-1" as="geometry" />
@@ -221,9 +221,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="e11" edge="1" parent="1" source="check-tag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="ctr-decrypt" value="Да" />
-        <mxCell id="e11b" edge="1" parent="1" source="ctr-output-decrypt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="return-success" />
+        <mxCell id="e11b" edge="1" parent="1" source="ctr-output-decrypt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" />
         <mxCell id="e12" edge="1" parent="1" source="check-tag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="error-auth" value="Нет" />
-        <mxCell id="e13" edge="1" parent="1" source="return-success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end" />
+        <mxCell id="e13" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end" />
         <mxCell id="e14" edge="1" parent="1" source="error-unsupported" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="end">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -403,6 +403,33 @@
         </mxCell>
         <mxCell id="E2NpWe_fUBjkays7JhY0-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;" value="Result.success(plaintext)" vertex="1">
           <mxGeometry height="50" width="180" x="790" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="yd-xS2Ez4q7UI-wo1r1u-1" edge="1" parent="1" source="error-length" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="810" y="840" as="sourcePoint" />
+            <mxPoint x="1370" y="405" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yd-xS2Ez4q7UI-wo1r1u-2" edge="1" parent="1" source="error-iv" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="810" y="690" as="sourcePoint" />
+            <mxPoint x="1370" y="285" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yd-xS2Ez4q7UI-wo1r1u-3" edge="1" parent="1" source="error-unsupported" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="810" y="690" as="sourcePoint" />
+            <mxPoint x="1370" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yd-xS2Ez4q7UI-wo1r1u-4" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1210" y="960" />
+            </Array>
+            <mxPoint x="1210" y="820" as="sourcePoint" />
+            <mxPoint x="1370" y="960" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
