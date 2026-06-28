@@ -1,1 +1,172 @@
+<resources>
+    <!-- 应用名称 -->
+    <string name="app_name">Cryptographer</string>
 
+    <!-- 导航 -->
+    <string name="menu">菜单</string>
+    <string name="close_menu">关闭菜单</string>
+    <string name="screens">功能</string>
+    <string name="encryption_algorithms">加密算法</string>
+    <string name="language_selection">语言</string>
+    <string name="theme_selection">主题</string>
+    <string name="dark_theme">深色主题</string>
+
+    <!-- 功能标题 -->
+    <string name="screen_key_generation">密钥生成</string>
+    <string name="screen_aes_encryption">AES 加密</string>
+    <string name="screen_aes_file">AES 文件处理</string>
+    <string name="screen_chacha20_encryption">ChaCha20 加密</string>
+    <string name="screen_chacha20_file">ChaCha20 文件处理</string>
+    <string name="screen_tdes_encryption">3DES 加密</string>
+    <string name="screen_tdes_file">3DES 文件处理</string>
+    <string name="screen_encoding">编码</string>
+
+    <!-- 功能名称 -->
+    <string name="key_generation">密钥生成</string>
+    <string name="aes_encryption">AES 加密</string>
+    <string name="aes_file_processing">AES 文件处理</string>
+    <string name="chacha20_encryption">ChaCha20 加密</string>
+    <string name="chacha20_file_processing">ChaCha20 文件处理</string>
+    <string name="tdes_encryption">3DES 加密</string>
+    <string name="tdes_file_processing">3DES 文件处理</string>
+    <string name="encoding">编码</string>
+
+    <!-- 密钥生成界面 -->
+    <string name="key_generation_title">加密密钥生成器</string>
+    <string name="key_generation_info">使用此工具生成加密密钥。生成的密钥可保存并用于编码。</string>
+    <string name="select_algorithm">选择算法：</string>
+    <string name="algorithm_aes_128">AES-128</string>
+    <string name="algorithm_aes_192">AES-192</string>
+    <string name="algorithm_aes_256">AES-256</string>
+    <string name="algorithm_chacha20_256">ChaCha20-256</string>
+    <string name="algorithm_tdes_112">3DES-112</string>
+    <string name="algorithm_tdes_168">3DES-168</string>
+    <string name="generate_key">生成密钥</string>
+    <string name="saved_keys">已保存的密钥</string>
+    <string name="delete_all_keys">删除所有密钥</string>
+    <string name="delete_all_keys_confirmation">确定要删除所有密钥吗？此操作无法撤销。</string>
+    <string name="delete_all_keys_title">删除所有密钥</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="copy">复制</string>
+    <string name="delete">删除</string>
+    <string name="key_id">ID：%1$s</string>
+    <string name="generated_key">生成的密钥</string>
+    <string name="algorithm_label">算法：%1$s</string>
+    <string name="key_id_label">密钥 ID：%1$s…</string>
+    <string name="delete_all_keys_dialog_title">删除所有密钥？</string>
+    <string name="delete_all_keys_dialog_message">确定要删除所有已保存的密钥吗？此操作无法撤销。共 %1$d 个密钥。</string>
+    <string name="failed_to_delete_all_keys">删除所有密钥失败：%1$s</string>
+    <string name="failed_to_generate_key">生成密钥失败</string>
+    <string name="key_not_found">未找到密钥</string>
+
+    <!-- AES 加密界面 -->
+    <string name="aes_encryption_title">AES 加密与解密</string>
+    <string name="aes_encryption_info">使用此工具通过 AES 密钥（AES-128、AES-192、AES-256）加密和解密文本。选择密钥长度和密钥，然后输入要加密或解密的文本。</string>
+    <string name="aes_file_title">AES 文件加密与解密</string>
+    <string name="aes_file_info">使用此工具通过 AES 密钥（AES-128、AES-192、AES-256）加密和解密文件。选择密钥长度和密钥，然后提供输入/输出路径。</string>
+    <string name="encryption_section">加密</string>
+    <string name="decryption_section">解密</string>
+    <string name="select_key">选择密钥</string>
+    <string name="no_keys_available">没有可用的密钥。请先生成密钥。</string>
+    <string name="enter_text_to_encrypt">输入要加密的文本</string>
+    <string name="enter_text_placeholder">输入文本…</string>
+    <string name="encrypt">加密</string>
+    <string name="encrypted_text">加密后的文本：</string>
+    <string name="enter_encrypted_text">输入加密后的文本（Base64）</string>
+    <string name="enter_encrypted_text_placeholder">输入加密后的文本…</string>
+    <string name="enter_iv_placeholder">输入 IV（可选）…</string>
+    <string name="decrypt">解密</string>
+    <string name="decrypted_text">解密后的文本：</string>
+    <string name="clear_all">全部清除</string>
+    <string name="iv_label">IV（初始化向量）：</string>
+    <string name="copy_iv">复制 IV</string>
+    <string name="key_id_prefix">ID：%1$s…</string>
+    <string name="encryption_info_text">使用已保存的密钥加密和解密文本。加密后的文本将以 Base64 格式显示。</string>
+
+    <!-- 错误信息 -->
+    <string name="error_key_mismatch">所选密钥与所选算法不匹配</string>
+    <string name="error_key_not_chacha20">所选密钥不是 ChaCha20 密钥</string>
+    <string name="error_invalid_algorithm_tdes">3DES 算法无效：%1$s</string>
+    <string name="error_failed_to_load_key">加载密钥失败：%1$s</string>
+    <string name="error_enter_text_to_encrypt">请输入要加密的文本</string>
+    <string name="error_enter_input_file_path">请输入输入文件路径</string>
+    <string name="error_select_key_to_encrypt">请选择用于加密的密钥</string>
+    <string name="error_encryption_failed">加密错误：%1$s</string>
+    <string name="error_enter_encrypted_text">请输入加密后的文本</string>
+    <string name="error_enter_encrypted_file_path">请输入加密后的文件路径</string>
+    <string name="error_enter_output_file_path">请输入输出文件路径</string>
+    <string name="error_select_key_to_decrypt">请选择用于解密的密钥</string>
+    <string name="error_decryption_failed">解密错误：%1$s</string>
+    <string name="error_invalid_base64_format">加密文本或 IV 的 Base64 格式无效。</string>
+    <string name="error_invalid_base64_format_nonce">加密文本或 nonce 的 Base64 格式无效。</string>
+
+    <!-- ChaCha20 加密界面 -->
+    <string name="chacha20_encryption_title">ChaCha20 加密与解密</string>
+    <string name="chacha20_encryption_info">使用此工具通过 ChaCha20-256 密钥加密和解密文本。选择密钥并输入要加密或解密的文本。</string>
+    <string name="chacha20_file_title">ChaCha20 文件加密与解密</string>
+    <string name="chacha20_file_info">使用此工具通过 ChaCha20-256 密钥加密和解密文件。选择密钥并提供输入/输出路径。</string>
+    <string name="nonce_label">Nonce：</string>
+    <string name="copy_nonce">复制 Nonce</string>
+    <string name="enter_nonce_placeholder">输入 nonce（可选）…</string>
+
+    <!-- 3DES 加密界面 -->
+    <string name="tdes_encryption_title">3DES 加密与解密</string>
+    <string name="tdes_encryption_info">使用此工具通过 3DES 密钥（3DES-112 或 3DES-168）加密和解密文本。选择密钥并输入要加密或解密的文本。</string>
+    <string name="tdes_file_title">3DES 文件加密与解密</string>
+    <string name="tdes_file_info">使用此工具通过 3DES 密钥（3DES-112 或 3DES-168）加密和解密文件。选择密钥并提供输入/输出路径。</string>
+    <string name="error_key_not_tdes">所选密钥不是 3DES 密钥</string>
+
+    <!-- 编码界面 -->
+    <string name="encoding_title">文本编码</string>
+    <string name="encoding_info">输入文本以查看不同编码：UTF-8、ASCII 和 BASE64。</string>
+    <string name="source_text">源文本</string>
+    <string name="enter_text_for_encoding">输入文本</string>
+    <string name="enter_text_for_encoding_placeholder">输入要编码的文本…</string>
+    <string name="utf8">UTF-8</string>
+    <string name="ascii">ASCII</string>
+    <string name="base64">BASE64</string>
+
+    <!-- 文件处理 -->
+    <string name="file_encryption_section">文件加密</string>
+    <string name="file_decryption_section">文件解密</string>
+    <string name="input_file_path">输入文件路径</string>
+    <string name="input_file_path_placeholder">输入文件路径…</string>
+    <string name="output_file_path">输出文件路径</string>
+    <string name="output_file_path_placeholder">输入输出文件路径…</string>
+    <string name="encrypted_file_path">加密文件路径</string>
+    <string name="encrypted_file_path_placeholder">输入加密文件路径…</string>
+    <string name="decrypted_file_path">解密文件路径</string>
+    <string name="select_input_file">选择输入文件</string>
+    <string name="select_output_file">选择输出文件</string>
+
+    <!-- 锁屏 -->
+    <string name="lock_screen_title">应用保护</string>
+    <string name="lock_screen_subtitle">输入密码以访问</string>
+    <string name="lock_password_label">密码</string>
+    <string name="lock_password_placeholder">输入密码</string>
+    <string name="lock_unlock_button">解锁</string>
+    <string name="lock_use_fingerprint">使用指纹</string>
+    <string name="lock_error_wrong_password">密码错误</string>
+    <string name="lock_error_too_many_attempts">尝试次数过多。请稍后再试。</string>
+    <string name="lock_error_biometric_locked">生物识别认证已锁定。</string>
+    <string name="lock_error_biometric_failed">生物识别认证错误</string>
+    <string name="lock_error_failed_to_set_password">设置密码失败</string>
+    <string name="lock_biometric_title">生物识别认证</string>
+    <string name="lock_biometric_subtitle">使用指纹解锁</string>
+    <string name="lock_biometric_cancel">取消</string>
+    <string name="lock_biometric_failed_to_recognize">指纹识别失败</string>
+
+    <!-- 密码设置界面 -->
+    <string name="password_setup_title">应用保护</string>
+    <string name="password_setup_subtitle">设置密码以保护应用</string>
+    <string name="password_setup_password_label">密码</string>
+    <string name="password_setup_password_placeholder">输入密码（至少 4 个字符）</string>
+    <string name="password_setup_confirm_password_label">确认密码</string>
+    <string name="password_setup_confirm_password_placeholder">再次输入密码</string>
+    <string name="password_setup_set_button">设置密码</string>
+    <string name="password_setup_enable_biometric">启用指纹</string>
+    <string name="password_setup_skip">跳过</string>
+    <string name="password_setup_error_passwords_not_match">密码不匹配</string>
+    <string name="password_setup_error_password_too_short">密码至少需要 4 个字符</string>
+</resources>
