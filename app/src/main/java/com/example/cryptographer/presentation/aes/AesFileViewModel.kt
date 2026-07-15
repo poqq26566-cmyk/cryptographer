@@ -14,10 +14,12 @@ import com.example.cryptographer.domain.text.valueobjects.EncryptionAlgorithm
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import io.github.oshai.kotlinlogging.KotlinLogging
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Base64
 import javax.inject.Inject
 
@@ -139,7 +141,9 @@ class AesFileViewModel @Inject constructor(
             val key = requireNotNull(selectedKey)
             viewModelScope.launch {
                 _uiState.value = _uiState.value.copy(isLoading = true, error = null)
-                presenter.encryptFile(inputPath, outputPath, key)
+                withContext(Dispatchers.IO) {
+                    presenter.encryptFile(inputPath, outputPath, key)
+                }
                     .onSuccess { info ->
                         _uiState.value = _uiState.value.copy(
                             isLoading = false,
@@ -177,7 +181,9 @@ class AesFileViewModel @Inject constructor(
             val key = requireNotNull(selectedKey)
             viewModelScope.launch {
                 _uiState.value = _uiState.value.copy(isLoading = true, error = null)
-                presenter.decryptFile(inputPath, outputPath, key)
+                withContext(Dispatchers.IO) {
+                    presenter.decryptFile(inputPath, outputPath, key)
+                }
                     .onSuccess { info ->
                         _uiState.value = _uiState.value.copy(
                             isLoading = false,
