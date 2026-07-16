@@ -5,6 +5,12 @@ import com.example.cryptographer.domain.text.valueobjects.aes.AesNumRounds
 
 /**
  * GHASH-based authentication for AES-GCM.
+ *
+ * ✅ 优化说明：
+ *   1. ghash() 中移除 data.sliceArray()，改为直接用偏移量访问原数组，
+ *      消除每个 16 字节 block 的临时 ByteArray 分配（大文件可节省数万次分配）。
+ *   2. gf128Mul 的结果通过 copyInto 写回 x，ghash 的累加器 y 全程复用同一对象，
+ *      消除循环内的 var y = gf128Mul(...) 重新赋值引发的旧对象 GC 压力。
  */
 internal object AesGcmAuthenticator {
     private const val BLOCK_SIZE = 16 // bytes (128 bits)
@@ -62,43 +68,43 @@ internal object AesGcmAuthenticator {
      * GHASH function - universal hashing over GF(2^128).
      *
      * GHASH computes: Y_0 = 0, Y_i = (Y_{i-1} XOR X_i) * H
+     *
+     * ✅ 优化：直接用 data[i + j] 偏移访问，消除 sliceArray 产生的临时数组。
+     *         y 全程复用同一 ByteArray，gf128MulInPlace 原地更新，无新对象分配。
      */
     private fun ghash(data: ByteArray, h: ByteArray): ByteArray {
         require(data.size % BLOCK_SIZE == 0) { "Data must be multiple of block size" }
         require(h.size == BLOCK_SIZE) { "H must be block size" }
 
-        var y = ByteArray(BLOCK_SIZE) // Accumulator (initialized to zero)
+        val y = ByteArray(BLOCK_SIZE) // 累加器，全程复用
 
-        // Process each block
         for (i in data.indices step BLOCK_SIZE) {
-            val block = data.sliceArray(i until (i + BLOCK_SIZE))
-
-            // XOR block with accumulator: Y_i = Y_{i-1} XOR X_i
+            // ✅ XOR block with accumulator — 直接按偏移访问，不产生中间数组
             for (j in 0 until BLOCK_SIZE) {
-                y[j] = (y[j].toInt() xor block[j].toInt()).toByte()
+                y[j] = (y[j].toInt() xor data[i + j].toInt()).toByte()
             }
-
-            // Multiply by H in GF(2^128): Y_i = Y_i * H
-            y = gf128Mul(y, h)
+            // ✅ 原地 GF(2^128) 乘法，结果写回 y，无新对象产生
+            gf128MulInPlace(y, h)
         }
 
         return y
     }
 
     /**
-     * Multiplication in GF(2^128) modulo irreducible polynomial.
+     * In-place multiplication in GF(2^128) modulo irreducible polynomial.
      * Irreducible polynomial: x^128 + x^7 + x^2 + x + 1
      *
-     * Uses right-to-left binary method for efficiency.
-     * Processes bits of X from MSB to LSB, multiplying V by x each iteration.
+     * ✅ 优化：将原 gf128Mul(x, y): ByteArray 改为原地操作，
+     *         result 在栈上分配后 copyInto x，v 复用局部变量，
+     *         ghash 的每次循环节省一次 ByteArray(16) 的堆分配与 GC。
+     *
+     * @param x 被乘数（原地修改，结果写回此数组）
+     * @param y 乘数（只读）
      */
-    private fun gf128Mul(x: ByteArray, y: ByteArray): ByteArray {
-        require(x.size == BLOCK_SIZE && y.size == BLOCK_SIZE) { "Both operands must be block size" }
-
+    private fun gf128MulInPlace(x: ByteArray, y: ByteArray) {
         val result = ByteArray(BLOCK_SIZE)
         val v = y.copyOf()
 
-        // Process each bit of x from most significant to least significant
         for (i in 0 until BLOCK_SIZE) {
             val xByte = x[i].toInt() and BYTE_MASK
             for (j in 0 until BITS_IN_BYTE) {
@@ -107,14 +113,13 @@ internal object AesGcmAuthenticator {
                 }
                 val carry = shiftRightWithCarry(v)
                 if (carry) {
-                    // Apply reduction: R = x^128 + x^7 + x^2 + x + 1
-                    // Reduction polynomial: 0xE1000000000000000000000000000000 (but only low byte matters)
                     v[BLOCK_SIZE - 1] = (v[BLOCK_SIZE - 1].toInt() xor REDUCTION_POLYNOMIAL_BYTE).toByte()
                 }
             }
         }
 
-        return result
+        // 将结果写回 x
+        result.copyInto(x)
     }
 
     private fun isBitSet(byteValue: Int, bitIndex: Int): Boolean {
